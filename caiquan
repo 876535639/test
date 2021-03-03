@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+	int p,c,n;
+    char E='A';
+	printf("`````````````Welcome!``````````````\n");
+	printf("````````````请输入1~100内，你认为的数字```````````````\n");
+	srand(time(NULL));
+    while((E=='a')||(E=='A'))
+	{   n=1;
+		c=rand()%101;
+		printf("c=%d",c);
+		scanf("%d",&p);
+    	while(p!=c)
+		{
+	        if(p<0||p>101)
+	    	printf("你输错了，重来\n");
+	        else
+			{
+		    	if(p<c) 
+				{
+			    	printf("Wrong!\n");
+	 		    	printf("Too low!\n");
+				}
+		        else if(p>c)
+				{
+			    	printf("Wrong!\n");
+			    	printf("Too high!\n");
+				}
+			}
+	    	if(n>9)
+			{
+		    	printf("没机会了，重头再来吧\n");
+		    	break;
+			}
+	    	else
+		    	scanf("%d",&p); 
+		        n=n+1;
+		}
+	  if(p==c)
+	        printf("Right!\n");
+            printf("你猜的次数为：%d\n",n);
+            printf("是否还要继续，如要继续，请按'A'或者'a',如果要结束请按其它键");
+            scanf("%ls",&E);
+	  if((E!='a')&&(E!='A'))
+	  break;
+	}
+	return 0;
+}
